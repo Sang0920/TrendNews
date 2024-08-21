@@ -3,7 +3,7 @@
     "builds": [{
         "src": "news_api/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "250mb", "runtime": "python3.12" }
+        "config": { "maxLambdaSize": "25mb", "runtime": "python3.12" }
     }],
     "routes": [
         {
@@ -11,10 +11,4 @@
             "dest": "news_api/wsgi.py"
         }
     ]
-    
-  "functions": {
-    "api/**": {
-      "excludeFiles": "{.next,*.cache,node_modules,public,app}/**"
-    }
-  }
 }
