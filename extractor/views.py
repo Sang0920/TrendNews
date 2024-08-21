@@ -2,7 +2,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework.decorators import api_view
-import pandas as pd
 from news_keyword_extractor import news_keyword_extractor 
 from rest_framework.response import Response
 
@@ -32,7 +31,7 @@ def get_keywords(request):
             min_ngram=min_ngram,
             max_ngram=max_ngram
         )
-        result_json = result.to_dict(orient='records') if isinstance(result, pd.DataFrame) else result.to_dict(orient='list')
+        result_json = result
         # return JsonResponse(result_json, safe=False)
         return Response(result_json)
     except Exception as e:
